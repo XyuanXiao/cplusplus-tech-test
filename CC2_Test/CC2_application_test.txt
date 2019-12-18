@@ -1,0 +1,171 @@
+﻿
+-	Create each program in C++
+-	Submit in a buildable solution and specify your build configuration in a separate .txt file (build.txt)
+-	Your program must read each question’s input (input1.txt, input2.txt, input3.txt), and output the answers as files (output1.txt, output2.txt, output3.txt)
+-	The use of class is mandatory for all questions
+-	Exceptions regarding the input should be disconsidered
+-	You are not allowed to use any external libraries, but you can use the standard libraries
+-	For the submission, compress to .zip the following files
+        1. Solution file and source code
+        2. All the .txt files (build.txt, output1.txt, output2.txt, output3.txt)
+	3. Executable .exe file
+	4. All the necessary files
+
+//-------------------------------------------------------------------------------------------------------------------------------
+
+Q1) Create a program that calculates "input1.txt".
+No rounding error is allowed.  
+
+
+- Input
+
+	Each case is separated by ”========”.
+	Each number is either positive (+) or negative (-). 
+	There are 3 types of operations: ”PLUS”, “MINUS”, “MULTIPLY”
+
+	
+- Output
+
+	Output the result of the calculation specifying its sign (+ or -).
+
+	
+- Input example
+
+========
+-4052093842971983749182739817
++9817298371893279528937489
+PLUS
+========
++213846897193241987243
++32184719028301982903
+MINUS
+
+
+- Output example
+
+========================
+-4052093842971983749182739817
++9817298371893279528937489
+PLUS
+-4042276544600090469653802328
+========================
++213846897193241987243
++32184719028301982903
+MINUS
++181662178164940004340
+
+
+※ Don't assign the whole number to the basic C++ data types.
+ex) float, int, etc.
+
+
+//-------------------------------------------------------------------------------------------------------------------------------
+
+Q2) An electrical cable has been parted and we need 2 wires to reconnect it.
+The electrical cable must be reconnected using exactly 2 wires.
+The distance between the disconnected cables is "X" centimeters.
+The sum of the length of the 2 wires must be equivalent to this distance.
+
+With "input2.txt" as the input, create a program that calculates the length of the cable.
+
+
+- Input
+
+	The input consists of multiple test cases.
+	Each case is separated by ”========”.
+	
+	The first line in each test case is the distance of the gap, "X". (1 <= X <= 20, where X is a constant)
+	The unit for "X" is centimeters.
+	
+	The next line is the number of wires available, "N". (0 <= N <= 1000000)
+	
+	The "N" lines after that are the lengths of the wires, "L". They are positive numbers and the unit is nanometers.
+	The length of a wire cannot exceed 10 centimeters (100000000 nanometers).
+
+	
+- Output
+
+	For each test case:
+	
+	If the cable may be reconnected properly, output [yes L1 L2]. (L1 <= L2)
+	
+	If not, output [danger].
+	
+	If there are multiple solutions, output the one with the biggest abs(L1 - L2).
+
+
+- Input example:
+
+========
+1
+4
+9999998
+1
+2
+9999999
+========
+2
+3
+15000000
+4999999
+1
+
+
+- Output example:
+
+========
+yes 1 9999999
+========
+danger
+
+
+//-------------------------------------------------------------------------------------------------------------------------------
+
+Q3) Implement a program that outputs equations with good usage of brackets.
+
+The given equation always has a good usage of brackets.
+For example "1+2", "(3+4)", "(3+4*(5+6))" has brackets properly used in pairs. Therefore it's a good equation.
+However, "1+(2*3", "((2+3)*4" does not have pairs of brackets. Therefore, it's not a good equation.
+
+Brackets always have to be deleted in pairs.
+For example, by deleting brackets, you may obtain "(2+2*2+2)", "2+(2*2)+2", "2+2*2+2" from the initial equation "(2+(2*2)+2)".
+However, you cannot make "(2+2*2)+2" or "2+(2*2+2)" because the deleted brackets weren't paired up.
+
+The given equations never contain multiple pairs of brackets. ex) "(((((2)))))"
+
+You can ignore the results of the given equations.
+
+- Input
+
+	Each case is separated by ”========”.
+	On the first line is an equation made of positive constants. This equation will have proper brackets.
+	The equation only consists of numerical values, "+", "*", "-", "/", "(" and ")".
+	The maximum length of the equation is 200 and there will be between 1 and 10 pairs (inclusive) of brackets.
+
+- Output
+
+	Delete pairs of brackets and list the good equations that can be made.
+
+
+- Input example:
+
+========
+(34+(56)-12*(78))
+========
+(0/(0))
+========
+
+- Output example:
+
+========
+(34+56-12*(78))
+(34+(56)-12*78)
+(34+56-12*78)
+34+(56)-12*(78)
+34+56-12*(78)
+34+(56)-12*78
+34+56-12*78
+========
+(0/0)
+0/(0)
+0/0
